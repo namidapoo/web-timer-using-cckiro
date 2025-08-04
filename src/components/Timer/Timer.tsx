@@ -127,7 +127,10 @@ export const Timer: React.FC = () => {
           <div
             role="alert"
             aria-live="polite"
-            className="fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg animate-slide-in"
+            className="fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg transition-transform duration-300 ease-out"
+            style={{
+              animation: 'slideIn 0.3s ease-out'
+            }}
           >
             {message}
           </div>

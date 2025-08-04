@@ -1,5 +1,5 @@
 import { useState, useCallback, useRef, useEffect } from 'react'
-import { normalizeTime, getTotalSeconds, isValidTime } from '../utils/timeUtils'
+import { normalizeTime, getTotalSeconds } from '../utils/timeUtils'
 
 interface TimerState {
   hours: number
