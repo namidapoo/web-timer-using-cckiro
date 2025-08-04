@@ -1,69 +1,89 @@
-# React + TypeScript + Vite
+# Web Timer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+シンプルで使いやすいWebベースのタイマーアプリケーション。
 
-Currently, two official plugins are available:
+## 機能
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **直感的な時間設定**: +/-ボタンで時間、分、秒を個別に調整
+- **クイック追加ボタン**: +10分、+30秒、+10秒をワンタップで追加
+- **視覚的なフィードバック**: 大きく見やすい時間表示
+- **終了通知**: タイマー終了時にトースト通知でお知らせ
+- **レスポンシブデザイン**: モバイル・デスクトップ両対応
+- **ダークモード対応**: システム設定に応じて自動切り替え
 
-## Expanding the ESLint configuration
+## 技術スタック
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **フレームワーク**: React 19 + TypeScript
+- **ビルドツール**: Vite (SWC)
+- **スタイリング**: Tailwind CSS v4
+- **パッケージマネージャー**: Bun
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## セットアップ
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+### 必要な環境
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- [Bun](https://bun.sh/) (最新版)
+
+### インストール
+
+```bash
+# リポジトリのクローン
+git clone https://github.com/yourusername/web-timer-using-cckiro.git
+cd web-timer-using-cckiro
+
+# 依存関係のインストール
+bun install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 開発
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+# 開発サーバーの起動
+bun dev
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# ビルド
+bun run build
+
+# プレビュー
+bun preview
+
+# Lintの実行
+bun lint
 ```
+
+## プロジェクト構造
+
+```
+src/
+├── components/
+│   ├── Timer/          # メインタイマーコンポーネント
+│   ├── TimeAdjuster/   # 時間調整UI（+/-ボタン）
+│   ├── QuickAddButtons/ # クイック追加ボタン
+│   └── ControlButtons/ # スタート/クリアボタン
+├── hooks/
+│   ├── useTimer.ts     # タイマーロジック
+│   └── useToast.ts     # トースト通知
+└── utils/
+    └── timeUtils.ts    # 時間フォーマット関連ユーティリティ
+```
+
+## 使い方
+
+1. **時間の設定**: 各数字の上下にある+/-ボタンで時間を調整
+2. **クイック追加**: 下部のボタンで素早く時間を追加
+3. **タイマー開始**: 「スタート」ボタンをクリック
+4. **リセット**: 「クリア」ボタンで初期状態に戻す
+
+## 特徴
+
+- **精度の高いタイマー**: `requestAnimationFrame`を使用した正確な時間計測
+- **モバイルフレンドリー**: 44x44px以上のタップ領域を確保
+- **アクセシブル**: ARIA属性とキーボード操作対応
+
+## ライセンス
+
+MIT
+
+## 貢献
+
+プルリクエストや課題の報告を歓迎します。
