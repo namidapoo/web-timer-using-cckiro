@@ -24,7 +24,7 @@ export const TimeAdjuster: React.FC<TimeAdjusterProps> = ({
       >
         ＋
       </button>
-      <div className="text-4xl md:text-6xl font-mono font-bold my-2">
+      <div className="text-6xl md:text-8xl font-mono font-bold my-4 text-gray-800 dark:text-gray-100">
         {formattedValue}
       </div>
       <button

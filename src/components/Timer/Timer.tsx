@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { useTimer } from '../../hooks/useTimer'
 import { useToast } from '../../hooks/useToast'
-import { TimeDisplay } from '../TimeDisplay/TimeDisplay'
 import { TimeAdjuster } from '../TimeAdjuster/TimeAdjuster'
 import { QuickAddButtons } from '../QuickAddButtons/QuickAddButtons'
 import { ControlButtons } from '../ControlButtons/ControlButtons'
@@ -83,14 +82,6 @@ export const Timer: React.FC = () => {
           Web Timer
         </h1>
         
-        <div className="mb-8">
-          <TimeDisplay
-            hours={time.hours}
-            minutes={time.minutes}
-            seconds={time.seconds}
-          />
-        </div>
-
         <div className="flex justify-center gap-8 mb-8">
           <TimeAdjuster
             value={time.hours}
